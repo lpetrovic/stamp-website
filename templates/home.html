@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Research project · {{ site.start | date("%Y") }}–{{ site.end | date("%Y") }}</p>
+    <h1>{{ site.full_title | replace("human-robot", "human‑robot") }}</h1>
+    <p class="lead">{{ site.tagline }}</p>
+    <p class="actions">
+      <a class="btn" href="#objectives">Objectives</a>
+      <a class="btn btn-ghost" href="{{ root }}news/">Latest news</a>
+    </p>
+  </div>
+  {% include "_hero-traj.html" %}
+</section>
+<div class="wrap content home-grid">
+  <div>
+    <div class="prose">{{ page.html | safe }}</div>
+    {% if page.objectives %}
+    <div class="prose">
+      <h2 id="objectives">Objectives</h2>
+      {% if page.objectives_lead %}<p>{{ page.objectives_lead }}</p>{% endif %}
+      <table>
+        <thead><tr><th></th><th>Objective</th></tr></thead>
+        <tbody>{% for o in page.objectives %}<tr><td><strong>{{ o.id }}</strong></td><td><strong>{{ o.title }}.</strong> {{ o.text }}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+  <aside class="news-aside">
+    <h2>News</h2>
+    {% for p in news[:3] %}
+    <article class="news-item">
+      <time datetime="{{ p.date }}">{{ p.date | date }}</time>
+      <h3><a href="{{ root }}{{ p.url }}">{{ p.title }}</a></h3>
+      {% if p.summary %}<p>{{ p.summary }}</p>{% endif %}
+    </article>
+    {% else %}<p class="muted">No news yet.</p>{% endfor %}
+    <p><a href="{{ root }}news/">All news →</a></p>
+  </aside>
+</div>
+{% endblock %}

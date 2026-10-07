@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.slug != "index" %}{{ page.title }} · {% endif %}{{ site.title }}: {{ site.full_title }}</title>
+  <meta name="description" content="{{ page.summary or page.lead or site.description }}">
+  <meta property="og:title" content="{{ site.title }}: {{ page.title }}">
+  <meta property="og:description" content="{{ page.summary or page.lead or site.description }}">
+  <meta property="og:image" content="{{ root }}static/img/og-image.png">
+  <link rel="icon" href="{{ root }}static/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{{ root }}static/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="{{ root }}static/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="{{ root }}static/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ root }}" aria-label="{{ site.title }} home">
+        <img class="logo-light" src="{{ root }}static/img/stamp-logo.svg" alt="{{ site.title }}" width="114" height="48">
+        <img class="logo-dark" src="{{ root }}static/img/stamp-logo-reversed.svg" alt="" width="114" height="48">
+      </a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+      <label for="nav-toggle" class="nav-burger" aria-hidden="true"><span></span></label>
+      <nav class="site-nav" aria-label="Main">
+        {% for item in site.menu %}
+        {% set active = (current == item.page) or (item.page and current.startswith(item.page ~ "/")) %}
+        <a href="{{ root }}{{ item.page }}{% if item.page %}/{% endif %}"{% if active %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    {% block main %}{% endblock %}
+  </main>
+  <section class="partners" aria-label="Funding and host institution">
+    <div class="wrap partners-inner">
+      <a href="https://hrzz.hr/" class="partner"><span>Funded by</span><img src="{{ root }}static/img/hrzz-logo.svg" alt="Croatian Science Foundation (HRZZ)" width="160" height="68"></a>
+      <div class="partner"><span>Hosted at</span>
+        <a href="{{ site.institution_url }}"><img class="fer" src="{{ root }}static/img/fer-logo.svg" alt="University of Zagreb Faculty of Electrical Engineering and Computing" width="245" height="45"></a>
+        <a href="https://lamor.fer.hr/"><img class="lamor" src="{{ root }}static/img/lamor-logo.png" alt="Laboratory for Autonomous Systems and Mobile Robotics (LAMOR)" width="351" height="150"></a>
+      </div>
+    </div>
+  </section>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <img src="{{ root }}static/img/stamp-logo-reversed.svg" alt="{{ site.title }}" width="96" height="40">
+        <p class="funding">{{ site.funding_note }}</p>
+      </div>
+      <div class="footer-links">
+        <p><a href="{{ site.institution_url }}">{{ site.institution }}</a></p>
+        <p><a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
+        <p>{% for s in site.social if s.url %}<a href="{{ s.url }}">{{ s.label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+        <p class="muted">© {{ site.year }} STAMP project</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

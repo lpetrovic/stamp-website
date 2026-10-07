@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="page-head">
+  <div class="wrap">
+    <h1>{{ page.title }}</h1>
+    {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+  </div>
+</section>
+<div class="wrap content">
+  {% if page.members %}
+  <div class="cards team">
+    {% for m in page.members %}
+    <article class="card person">
+      {% if m.photo %}<img class="avatar" src="{{ root }}static/img/{{ m.photo }}" alt="{{ m.name }}">
+      {% else %}<div class="avatar initials" aria-hidden="true">{% set parts = m.name.split() %}{{ m.initials or (parts[0][0] ~ parts[-1][0]) }}</div>{% endif %}
+      <h3>{{ m.name }}</h3>
+      <p class="role">{{ m.role }}</p>
+      {% if m.bio %}<p>{{ m.bio }}</p>{% endif %}
+      <p class="small">
+        {% if m.email %}<a href="mailto:{{ m.email }}">{{ m.email }}</a>{% endif %}
+        {% if m.email and m.orcid %} · {% endif %}
+        {% if m.orcid %}<a href="https://orcid.org/{{ m.orcid }}">ORCID</a>{% endif %}
+        {% if m.scholar and (m.email or m.orcid) %} · {% endif %}
+        {% if m.scholar %}<a href="{{ m.scholar }}">Google Scholar</a>{% endif %}
+      </p>
+    </article>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <div class="prose">{{ page.html | safe }}</div>
+</div>
+{% endblock %}

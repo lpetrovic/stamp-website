@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="page-head">
+  <div class="wrap narrow">
+    <p class="eyebrow"><time datetime="{{ page.date }}">{{ page.date | date }}</time></p>
+    <h1>{{ page.title }}</h1>
+  </div>
+</section>
+<div class="wrap content narrow">
+  {% if page.image %}<img class="post-image" src="{{ root }}static/img/{{ page.image }}" alt="">{% endif %}
+  <div class="prose">{{ page.html | safe }}</div>
+  <p><a href="{{ root }}news/">← All news</a></p>
+</div>
+{% endblock %}

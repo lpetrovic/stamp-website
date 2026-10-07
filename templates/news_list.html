@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="page-head"><div class="wrap"><h1>News</h1></div></section>
+<div class="wrap content narrow">
+  {% for p in news %}
+  <article class="news-item">
+    <time datetime="{{ p.date }}">{{ p.date | date }}</time>
+    <h2><a href="{{ root }}{{ p.url }}">{{ p.title }}</a></h2>
+    {% if p.summary %}<p>{{ p.summary }}</p>{% endif %}
+  </article>
+  {% else %}<p class="muted">No news yet.</p>{% endfor %}
+</div>
+{% endblock %}

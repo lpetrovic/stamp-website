@@ -1,0 +1,33 @@
+# Site-wide settings for the STAMP website. Edit and rebuild (or push).
+title: STAMP
+full_title: Stochastic integrated task and motion planning for human-robot collaboration
+tagline: Safe and efficient human-robot collaboration in dynamic, uncertain environments.
+description: >-
+  STAMP is a research project developing a stochastic integrated task and motion planning
+  framework for safe and efficient human-robot collaboration.
+start: 2026-10-01
+end: 2029-09-30
+funding_note: >-
+  This project is funded by the Croatian Science Foundation (HRZZ) under the
+  Installation Research Projects programme (UIP-2026). Project code: UIP-2026-8339.
+institution: LAMOR, University of Zagreb Faculty of Electrical Engineering and Computing
+institution_url: https://www.fer.unizg.hr/en
+contact_email: luka.petrovic@fer.hr
+cname: stamp.fer.hr
+
+# Main menu: label + page (file name in content/ without .md; "" = home page)
+menu:
+  - {label: Project, page: ""}
+  - {label: Team, page: team}
+  - {label: News, page: news}
+  - {label: Publications, page: publications}
+  - {label: Software & data, page: software-data}
+  - {label: Contact, page: contact}
+
+# Links shown in the footer (leave url empty to hide)
+social:
+  - {label: GitHub, url: ""}
+  - {label: Zenodo, url: ""}
+  - {label: YouTube, url: ""}
+  - {label: LinkedIn, url: ""}
+  - {label: X, url: ""}
