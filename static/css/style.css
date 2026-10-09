@@ -126,10 +126,9 @@ main { flex: 1; }
 
 /* partner logos: always on white (HRZZ: no colour logo on coloured backgrounds) */
 .partners { background: #FFFFFF; border-top: 1px solid #E4E2DA; padding: 28px 0; }
-.partners-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 24px 64px; }
-.partner { display: flex; align-items: center; gap: 16px; text-decoration: none; }
-.partner span { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #5C6B73; }
-.partner img { height: 56px; width: auto; }
+.partners-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 24px 56px; }
+.partner { display: block; min-width: 0; max-width: 100%; }
+.partner img { display: block; height: 56px; width: auto; max-width: 100%; object-fit: contain; }
 .partner img.fer { height: 40px; }
 .partner img.lamor { height: 64px; }
 

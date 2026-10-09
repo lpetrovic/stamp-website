@@ -35,7 +35,11 @@ objectives:
 
 ## About the project
 
-The STAMP project aims to enable **safe and efficient human-robot collaboration (HRC)** in
+STAMP is carried out at the Laboratory for Autonomous Systems and Mobile Robotics (LAMOR),
+**University of Zagreb Faculty of Electrical Engineering and Computing** (FER), and runs from
+1 October 2026 to 30 September 2029.
+
+The project aims to enable **safe and efficient human-robot collaboration (HRC)** in
 dynamic, uncertain environments, which is a fundamental challenge in robotics. Robots perform
 well in structured industrial settings, but they struggle in unstructured spaces where human
 presence introduces unpredictability.
@@ -49,3 +53,6 @@ potential conflicts.
 
 The project will use motion capture systems, RGB-D sensors and collaborative robot platforms.
 All developed methods will be released as open-source, ROS-compatible software.
+
+*This work has been supported by the Croatian Science Foundation under the project
+UIP-2026-8339.*

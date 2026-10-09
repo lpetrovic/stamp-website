@@ -1,6 +1,6 @@
 ---
 title: Publications
-lead: All journal articles are published open access. Add new entries at the top of the relevant list.
+lead: All journal articles are published open access.
 ---
 
 ## Journal articles

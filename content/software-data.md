@@ -1,6 +1,6 @@
 ---
 title: Software & data
-lead: STAMP follows open-science principles. Code is released on GitHub and the HRC dataset on Zenodo, following the FAIR principles.
+lead: STAMP follows open-science principles. Code will be released on GitHub and the HRC dataset on Zenodo.
 ---
 
 ## Software
