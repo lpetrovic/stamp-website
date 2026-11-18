@@ -25,4 +25,5 @@ members:
     scholar: https://scholar.google.com/citations?user=mvJ5AUwAAAAJ
   - name: Iskra Maravić
     role: Research assistant
+    orcid: 0009-0009-9028-6906
 ---
